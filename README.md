@@ -4,6 +4,9 @@ Welcome to your new gem! In this directory, you'll find the files you need to be
 
 TODO: Delete this and the text above, and describe your gem
 
+[![Build Status](https://travis-ci.org/kawabatas/activejob-google_cloud_tasks.svg?branch=master)](https://travis-ci.org/kawabatas/activejob-google_cloud_tasks)
+[![Gem Version](https://badge.fury.io/rb/activejob-google_cloud_tasks.svg)](https://badge.fury.io/rb/activejob-google_cloud_tasks)
+
 ## Installation
 
 Add this line to your application's Gemfile:
