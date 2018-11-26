@@ -5,7 +5,7 @@
 
 Google Cloud Tasks adapter for ActiveJob
 
-## Prerequest
+## Prerequisites
 - [Creating App Engine Queues](https://cloud.google.com/tasks/docs/creating-appengine-queues)
 
 ## Installation
@@ -72,16 +72,10 @@ Rails.application.config.active_job.queue_adapter = Activejob::GoogleCloudTasks:
 
 - `location` - (Required) The Location of the Cloud Tasks.
 
-- `cloud_tasks_client` - (Optional)
-
-The instance of `Google::Cloud::Tasks`. Please see [`Google::Cloud::Tasks.new`](https://googleapis.github.io/google-cloud-ruby/docs/google-cloud-tasks/latest/Google/Cloud/Tasks.html#new-class_method) for details.
-
-Default: `Google::Cloud::Tasks.new(version: :v2beta3)`
+- `cloud_tasks_client` - (Optional) The instance of `Google::Cloud::Tasks`. Please see [`Google::Cloud::Tasks.new`](https://googleapis.github.io/google-cloud-ruby/docs/google-cloud-tasks/latest/Google/Cloud/Tasks.html#new-class_method) for details. Default: `Google::Cloud::Tasks.new(version: :v2beta3)`
 
 ### Config
-- `path` - (Optional) The path which the Cloud Tasks service forwards the task request to the worker.
-
-Default: `/activejobs`
+- `path` - (Optional) The path which the Cloud Tasks service forwards the task request to the worker. Default: `/activejobs`
 
 ## Development
 
