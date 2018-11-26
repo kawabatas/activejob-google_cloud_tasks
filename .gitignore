@@ -9,3 +9,6 @@
 
 # rspec failure tracking
 .rspec_status
+
+/credentials.tar.gz
+/client-secret.json

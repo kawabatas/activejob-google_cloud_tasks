@@ -36,6 +36,7 @@ end
 ```
 
 Write the Job class and code to use it.
+Note: The argument is one and it must be hash.
 
 ``` ruby
 class SampleJob < ApplicationJob
@@ -75,6 +76,10 @@ Rails.application.config.active_job.queue_adapter = Activejob::GoogleCloudTasks:
 - `cloud_tasks_client` - (Optional) The instance of `Google::Cloud::Tasks`. Please see [`Google::Cloud::Tasks.new`](https://googleapis.github.io/google-cloud-ruby/docs/google-cloud-tasks/latest/Google/Cloud/Tasks.html#new-class_method) for details. Default: `Google::Cloud::Tasks.new(version: :v2beta3)`
 
 ### Config
+```
+Activejob::GoogleCloudTasks::Config.path = '/foo'
+```
+
 - `path` - (Optional) The path which the Cloud Tasks service forwards the task request to the worker. Default: `/activejobs`
 
 ## Development
