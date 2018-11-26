@@ -5,10 +5,10 @@ require 'google/cloud/tasks/v2beta3/cloud_tasks_client'
 module Activejob
   module GoogleCloudTasks
     class Adapter
-      def initialize(project:, location:)
+      def initialize(project:, location:, cloud_tasks_client: Google::Cloud::Tasks.new(version: :v2beta3))
         @project = project
         @location = location
-        @cloud_tasks_client = Google::Cloud::Tasks.new(version: :v2beta3)
+        @cloud_tasks_client = cloud_tasks_client
       end
 
       def enqueue(job, attributes = {})

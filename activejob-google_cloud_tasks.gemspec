@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency 'rack'
+  spec.add_runtime_dependency 'rack', ">= 2.0.6"
   spec.add_runtime_dependency 'activejob'
   spec.add_runtime_dependency 'activesupport'
   spec.add_runtime_dependency 'google-cloud-tasks', '~> 0.2.6'
