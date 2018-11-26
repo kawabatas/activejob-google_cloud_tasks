@@ -10,6 +10,8 @@ LOCATION  = 'my-location'
 QUEUE     = 'my-queue'
 BASE_PATH = '/foo'
 
+ENV['GOOGLE_APPLICATION_CREDENTIALS'] = 'spec/fixtures/my_cert_file'
+
 class FooJob < ActiveJob::Base
   queue_as QUEUE
   def perform(args)
@@ -110,19 +112,27 @@ RSpec.describe Activejob::GoogleCloudTasks do
   end
 
   it 'can execute Defined Job' do
+    allow(Google::Cloud::Tasks::V2beta3::Credentials).to receive(:default).and_return(mock_credentials)
+    app
     get "#{BASE_PATH}/perform?job=FooJob"
     expect(last_response.status).to eq(200)
   end
 
   it 'raises an error when executing Undefined Job' do
+    allow(Google::Cloud::Tasks::V2beta3::Credentials).to receive(:default).and_return(mock_credentials)
+    app
     expect { get "#{BASE_PATH}/perform?job=BarJob" }.to raise_error(NameError)
   end
 
   it 'raises an error when executing without Job parameter' do
+    allow(Google::Cloud::Tasks::V2beta3::Credentials).to receive(:default).and_return(mock_credentials)
+    app
     expect { get "#{BASE_PATH}/perform" }.to raise_error(StandardError)
   end
 
   it 'handles requests other than execute' do
+    allow(Google::Cloud::Tasks::V2beta3::Credentials).to receive(:default).and_return(mock_credentials)
+    app
     get "#{BASE_PATH}/other"
     expect(last_response.status).to eq(404)
   end
