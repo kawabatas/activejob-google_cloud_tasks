@@ -56,6 +56,10 @@ class SampleController < ApplicationController
 end
 ```
 
+[kawabatas/rails_activejob_sample](https://github.com/kawabatas/rails_activejob_sample) is rails example.
+
+## Configuration
+
 ### Adapter
 ``` ruby
 Rails.application.config.active_job.queue_adapter = Activejob::GoogleCloudTasks::Adapter.new(
