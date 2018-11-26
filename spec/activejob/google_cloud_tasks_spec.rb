@@ -73,9 +73,6 @@ RSpec.describe Activejob::GoogleCloudTasks do
 
   it 'can enqueue Defined Unscheduled Job' do
     mock_method = proc do |request|
-      p "======= request Defined Unscheduled Job"
-      p request
-
       expect(request).to be_an_instance_of(Google::Cloud::Tasks::V2beta3::CreateTaskRequest)
 
       relative_uri = request.task.app_engine_http_request.relative_uri.dup
@@ -95,9 +92,6 @@ RSpec.describe Activejob::GoogleCloudTasks do
 
   it 'can enqueue Defined Schedule Job' do
     mock_method = proc do |request|
-      p "======= request Defined Scheduled Job"
-      p request
-
       expect(request).to be_an_instance_of(Google::Cloud::Tasks::V2beta3::CreateTaskRequest)
 
       relative_uri = request.task.app_engine_http_request.relative_uri.dup

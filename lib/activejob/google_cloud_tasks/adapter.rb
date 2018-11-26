@@ -1,5 +1,6 @@
 require 'activejob/google_cloud_tasks/config'
-require 'google/cloud/tasks/v2beta3'
+require 'google/cloud/tasks'
+require 'google/cloud/tasks/v2beta3/cloud_tasks_client'
 
 module Activejob
   module GoogleCloudTasks
