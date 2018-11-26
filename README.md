@@ -36,7 +36,8 @@ end
 ```
 
 Write the Job class and code to use it.
-Note: The argument is one and it must be hash.
+
+Note: perform argument is one and it must be hash.
 
 ``` ruby
 class SampleJob < ApplicationJob
