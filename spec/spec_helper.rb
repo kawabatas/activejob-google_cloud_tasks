@@ -1,4 +1,5 @@
 require "bundler/setup"
+require "active_job"
 require "activejob/google_cloud_tasks"
 
 RSpec.configure do |config|
