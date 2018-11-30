@@ -11,4 +11,9 @@ RSpec.describe Activejob::GoogleCloudTasks::Config do
     subject.path = '/jobs'
     expect(subject.path).to eq '/jobs'
   end
+
+  it "raises if blank path is to be set" do
+    expect { subject.path = nil }.to raise_error(RuntimeError)
+    expect { subject.path = '' }.to raise_error(RuntimeError)
+  end
 end
