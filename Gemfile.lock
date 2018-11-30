@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activejob-google_cloud_tasks (0.1.2)
+    activejob-google_cloud_tasks (0.1.3)
       activejob
       activesupport
       google-cloud-tasks (~> 0.2.6)
@@ -10,10 +10,10 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activejob (5.2.1)
-      activesupport (= 5.2.1)
+    activejob (5.2.1.1)
+      activesupport (= 5.2.1.1)
       globalid (>= 0.3.6)
-    activesupport (5.2.1)
+    activesupport (5.2.1.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -22,7 +22,7 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     concurrent-ruby (1.1.3)
     diff-lcs (1.3)
-    faraday (0.15.3)
+    faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
