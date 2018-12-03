@@ -4,11 +4,12 @@ module Activejob
       DEFAULT_PATH = '/activejobs'
 
       def self.path
-        defined?(@path) ? @path : DEFAULT_PATH
+        @path.presence || DEFAULT_PATH
       end
 
       def self.path=(path)
-        @path = path ? path : DEFAULT_PATH
+        raise "path can't be blank" unless path.present?
+        @path = path
       end
     end
   end
