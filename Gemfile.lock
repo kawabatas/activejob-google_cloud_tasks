@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    activejob-google_cloud_tasks (0.1.5)
+    activejob-google_cloud_tasks (0.1.6)
       activejob
       activesupport
       google-cloud-tasks (>= 0.2.6, < 0.5.0)
