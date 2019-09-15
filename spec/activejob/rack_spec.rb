@@ -10,10 +10,10 @@ RSpec.describe Activejob::GoogleCloudTasks::Rack do
     job_klass = spy('GreetJob')
     expect(app).to receive(:klass) { job_klass }
 
-    params = { job: 'GreetJob', foo: 'bar' }
+    params = { job: 'GreetJob', params: ["foo", ":)", {:prefix=>"howdy"}] }
     get '/perform', params
     expect(last_response.status).to eq(200)
-    expect(job_klass).to have_received(:perform_now).with(params)
+    expect(job_klass).to have_received(:perform_now).with(*params[:params])
   end
 
   it 'raises NameError for unknown job' do

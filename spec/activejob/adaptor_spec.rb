@@ -14,15 +14,16 @@ RSpec.describe Activejob::GoogleCloudTasks::Adapter do
     eval <<-JOB
       class GreetJob < ActiveJob::Base
         queue_as "#{queue}"
-        def perform(args)
-          "hello, \#{args[:name]}!"
+        def perform(name, suffix='!', prefix: 'hello')
+          "\#{prefix} \#{name}\#{suffix}"
         end
       end
     JOB
   end
 
+
   describe '#enqueue' do
-    let(:job) { GreetJob.new(name: 'foo') }
+    let(:job) { GreetJob.new('foo', ':)', prefix: 'howdy') }
 
     it 'creates cloud tasks job' do
       subject.enqueue(job)
@@ -32,7 +33,9 @@ RSpec.describe Activejob::GoogleCloudTasks::Adapter do
         {
           app_engine_http_request: {
               http_method: :GET,
-              relative_uri: "#{Activejob::GoogleCloudTasks::Config.path}/perform?job=GreetJob&name=foo"
+              relative_uri: \
+                Activejob::GoogleCloudTasks::Config.path +
+                '/perform?job=GreetJob&params%5B%5D=foo&params%5B%5D=%3A%29&params%5B%5D%5Bprefix%5D=howdy'
             }
         }
       )
@@ -47,7 +50,9 @@ RSpec.describe Activejob::GoogleCloudTasks::Adapter do
         {
           app_engine_http_request: {
               http_method: :GET,
-              relative_uri: "#{Activejob::GoogleCloudTasks::Config.path}/perform?job=GreetJob&name=foo",
+              relative_uri: \
+                Activejob::GoogleCloudTasks::Config.path +
+                '/perform?job=GreetJob&params%5B%5D=foo&params%5B%5D=%3A%29&params%5B%5D%5Bprefix%5D=howdy'
           },
           schedule_time: Google::Protobuf::Timestamp.new(seconds: scheduled_at.to_i)
         }
