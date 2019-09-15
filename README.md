@@ -37,13 +37,11 @@ end
 
 Write the Job class and code to use it.
 
-Note: perform argument is one and it must be hash.
-
 ``` ruby
 class SampleJob < ApplicationJob
   queue_as :default
-  def perform(args)
-    puts "hello, #{args[:name]}!"
+  def perform(name, greeting='hello')
+    puts "#{greeting}, #{name}!"
   end
 end
 ```
@@ -51,7 +49,7 @@ end
 ``` ruby
 class SampleController < ApplicationController
   def job
-    SampleJob.perform_later({name: 'ken'})
+    SampleJob.perform_later('ken', 'howdy')
   end
 end
 ```
