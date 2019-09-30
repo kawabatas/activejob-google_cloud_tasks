@@ -68,7 +68,7 @@ GEM
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
-    rake (12.3.3)
+    rake (13.0.0)
     rly (0.2.3)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
@@ -99,7 +99,7 @@ DEPENDENCIES
   activejob-google_cloud_tasks!
   bundler (~> 1.17)
   rack-test
-  rake (~> 12.3)
+  rake (~> 13.0)
   rspec (~> 3.0)
 
 BUNDLED WITH
